@@ -1,0 +1,27 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <div>
+      <div>
+        <a class="btn btn-primary" href="{% url 'disciplina_edit' pk=disciplina.pk %}">Editar Disciplina</a>
+      </div>
+      <br>
+            <div class="">
+              <p>Nome da Disciplina: {{ disciplina.nome_disciplina }}</p>
+              <p>Nome do professor: {{disciplina.professor}}</p>
+              <p>Carga Horária: {{disciplina.carga_horaria}}</p>
+              <p>Período: {{disciplina.periodo}}h</p>
+
+              <br>
+              <div class="">
+                <h6>Plano de Aula</h6>
+              
+              </div>
+
+            </div>
+
+
+    </div>
+{% endblock %}

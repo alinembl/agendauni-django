@@ -1,0 +1,38 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <div>
+      <div>
+          <a class="btn btn-primary" href="{% url 'curso_edit' pk=curso.pk %}">Editar Curso</a>
+
+            <div class="">
+              <h4>{{ curso.cod_curso }} . {{curso.nome_curso}} </h4>
+              <p>Duração: {{curso.duracao}}</p>
+              <p>Turno: {{curso.turno}}</p>
+              <p>Coordenador: {{curso.coordenador}}</p>
+              <br>
+              <h6>Disciplinas</h6>
+              <a class="btn btn-primary"href="{% url 'disciplina_novo' pk=curso.pk%}" class="top-menu">Cadastrar Disciplina</a>
+              <br>
+              <br>
+              <div>
+              {%for disciplina in curso.disciplina_set.all%}
+                {% if disciplina != null %}
+                  <ul class="list-group">
+                      <li class="list-group-item"><a href="{% url 'disciplina_detail' pk=disciplina.pk %}">{{disciplina}}</a></li>
+                  </ul>
+
+                {%else%}
+                    <p>nÃo existem disciplinas cadastradas nesse curso</p>
+                    <p>botÃo</p>
+                {%endif%}
+              {%endfor%}
+
+                  </div>
+            </div>
+
+
+    </div>
+{% endblock %}

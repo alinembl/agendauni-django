@@ -1,0 +1,18 @@
+
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Professores</h3>
+<nav>
+  <ul>
+    <li>
+          <a class="btn btn-primary"href="{% url 'professor_novo' %}" class="top-menu">Novo Professor</a>
+    </li>
+  </ul>
+</nav>
+    {% for professor in professores%}
+      <ul class="list-group">
+        <li class="list-group-item"><a href="{% url 'professor_detail' pk=professor.pk %}">{{professor}}</a></li>
+      </ul>
+    {%endfor%}
+{% endblock %}

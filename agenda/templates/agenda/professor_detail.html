@@ -1,0 +1,27 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <div>
+      <div>
+        <a class="btn btn-primary" href="{% url 'professor_edit' pk=professor.pk %}">Editar Professor</a>
+      </div>
+      <br>
+            <div class="">
+              <p>Matrícula: {{ professor.mat_prof }}</p>
+              <p>Nome do professor: {{professor.nome_prof}}</p>
+              <p>Email: {{professor.email_prof}}</p>
+              <br>
+              <div class="">
+                <h6>Curso que coordena</h6>
+                <ul class="list-group">
+                  <li class="list-group-item">{{professor.curso.nome_curso}}</li>
+                </ul>
+              </div>
+
+            </div>
+
+
+    </div>
+{% endblock %}

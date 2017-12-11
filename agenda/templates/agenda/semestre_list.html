@@ -1,0 +1,18 @@
+
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Semestres</h3>
+<nav>
+  <ul>
+    <li>
+        <a class="btn btn-primary"href="{% url 'semestre_novo' %}" class="top-menu">Novo Semestre</a>
+    </li>
+  </ul>
+</nav>
+    {% for semestre in semestres%}
+      <ul class="list-group">
+        <li class="list-group-item"><a href="{% url 'semestre_detail' pk=semestre.pk %}">{{semestre.ano}}.{{semestre.sem}}</a></li>
+      </ul>
+    {%endfor%}
+{% endblock %}

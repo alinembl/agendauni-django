@@ -1,0 +1,17 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Disciplinas</h3>
+<nav>
+  <ul>
+    <li>
+
+    </li>
+  </ul>
+</nav>
+    {% for semestre in semestres%}
+      <ul class="list-group">
+        <li class="list-group-item">{{curso.disciplina}}</li>
+      </ul>
+    {%endfor%}
+{% endblock %}

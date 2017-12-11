@@ -1,0 +1,29 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+    <div>
+      <div>
+          <a class="btn btn-primary" href="{% url 'semestre_edit' pk=semestre.pk %}">Editar Semestre</a>
+          <a class="btn btn-danger" href="{% url 'semestre_remove' pk=semestre.pk %}">Remover Semestre</a>
+      </div>
+      <br>
+            <div class="">
+              <h4>{{ semestre.ano }} . {{semestre.sem}} </h4>
+              <p>{{semestre.data_inicial|date:"d M Y"}} - {{semestre.data_final|date:"d M Y"}}</p>
+              <br>
+              <div class="">
+                <h4>Cursos</h4>
+                {%for curso in semestre.cursos.all%}
+                <ul class="list-group">
+                  <li class="list-group-item"><a href="{% url 'curso_detail' pk=curso.pk %}">{{curso}}</a></li>
+                </ul>
+                {%endfor%}
+              </div>
+
+            </div>
+
+
+    </div>
+{% endblock %}

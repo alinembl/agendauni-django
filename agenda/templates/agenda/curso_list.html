@@ -1,0 +1,18 @@
+{% extends 'agenda/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h3>Cursos</h3>
+<nav>
+  <ul>
+    <li>
+        <a class="btn btn-primary"href="{% url 'curso_novo' %}" class="top-menu">Novo Curso</a>
+        
+    </li>
+  </ul>
+</nav>
+    {% for curso in cursos%}
+      <ul class="list-group">
+        <li class="list-group-item"><a href="{% url 'curso_detail' pk=curso.pk %}">{{curso}}</a></li>
+      </ul>
+    {%endfor%}
+{% endblock %}
