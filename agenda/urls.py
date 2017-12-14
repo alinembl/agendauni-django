@@ -29,7 +29,10 @@ urlpatterns = [
     url(r'^disciplina/(?P<pk>\d+)/edit/$', views.disciplina_edit, name='disciplina_edit'),
     url(r'^disciplina/(?P<pk>\d+)/$', views.disciplina_detail, name='disciplina_detail'),
     url(r'^curso/(?P<pk>\d+)/disciplina_novo/$', views.disciplina_novo, name='disciplina_novo'),
-    url(r'^disciplina/(?P<pk>\d+)/remove/$', views.disciplina_remove, name='disciplina_remove')
+    url(r'^disciplina/(?P<pk>\d+)/remove/$', views.disciplina_remove, name='disciplina_remove'),
 
+    #caminhos forcados
+    url(r'^disciplina/(?P<pk>\d+)/plano_de_aula/$', views.plano_de_aula, name='plano_de_aula'),
+    
 
 ]

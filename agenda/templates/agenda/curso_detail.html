@@ -6,7 +6,7 @@
     <div>
       <div>
           <a class="btn btn-primary" href="{% url 'curso_edit' pk=curso.pk %}">Editar Curso</a>
-
+          <a class="btn btn-danger" href="{% url 'curso_remove' pk=curso.pk %}">Remover Curso</a>
             <div class="">
               <h4>{{ curso.cod_curso }} . {{curso.nome_curso}} </h4>
               <p>Duração: {{curso.duracao}}</p>

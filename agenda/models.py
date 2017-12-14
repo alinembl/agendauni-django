@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 
@@ -9,8 +11,10 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.mat_prof + "-" + self.nome_prof
-
-
+    class Meta:
+        permissions = {
+            (' manter_professor', 'Manter professor')
+        }
 class Curso(models.Model):
     cod_curso = models.CharField(verbose_name='código do curso',max_length=3)
     nome_curso = models.CharField(verbose_name='nome do curso',max_length=100)
@@ -20,7 +24,9 @@ class Curso(models.Model):
 
     class Meta:
         unique_together = (('cod_curso','nome_curso'))
-
+        permissions = {
+            (' manter_curso', 'Manter Curso')
+        }
 
     def __str__(self):
         return self.cod_curso + "-" + self.nome_curso
@@ -36,6 +42,9 @@ class Disciplina(models.Model):
 
     class Meta:
         unique_together = (('cod_disciplina','nome_disciplina'))
+        permissions = {
+            (' manter_Disciplina', 'Manter Disciplina')
+        }
 
     def __str__(self):
         return self.cod_disciplina + "-" + self.nome_disciplina
@@ -50,6 +59,17 @@ class Semestre(models.Model):
 
     class Meta:
         unique_together = (('ano','sem'))
+        permissions = {
+            (' manter_semestre', 'Manter Semestre')
+        }
 
     def __str__(self):
         return self.ano + "." + self.sem
+
+class AlunoDisc(models.Model):
+    aluno = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    curso = models.OneToOneField('Curso',on_delete=models.CASCADE,default=None,blank=True,null=True)
+    disciplinas = models.ManyToManyField(Disciplina,blank=True,null=True)

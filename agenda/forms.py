@@ -1,5 +1,5 @@
 from django import forms
-from .models import Semestre,Curso,Professor,Disciplina
+from .models import Semestre,Curso,Professor,Disciplina,AlunoDisc
 
 class ProfessorForm(forms.ModelForm):
 
@@ -33,3 +33,8 @@ class DisciplinaForm(forms.ModelForm):
     class Meta:
         model = Disciplina
         fields = ('cod_disciplina','nome_disciplina','periodo','carga_horaria','bibliografia', 'professor')
+
+class MatriculaForm(forms.Form):
+    class Meta:
+        model = AlunoDisc
+        fields = ('curso')

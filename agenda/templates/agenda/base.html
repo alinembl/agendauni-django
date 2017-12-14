@@ -24,19 +24,29 @@
       <li class="nav-item">
         <a class="nav-link" href="/semestres">Semestres</a>
       </li>
+      {% if perms.agendauni.manter_curso %}
       <li class="nav-item">
         <a class="nav-link" href="/cursos">Cursos</a>
       </li>
+      {% endif%}
       <li class="nav-item">
         <a class="nav-link" href="#">Alunos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/professores">Professores</a>
       </li>
+
+      {% if user.is_authenticated %}
+      <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+
+      {% else %}
       <li class="nav-item">
-        <a class="nav-link" href="#">Acesso</a>
+            <a href="{% url 'login' %}" class="top-menu">Acesso</a>
       </li>
+      {% endif %}
+
     </ul>
+
 
   </div>
 </nav>

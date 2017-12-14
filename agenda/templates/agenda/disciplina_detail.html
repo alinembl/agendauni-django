@@ -11,13 +11,13 @@
             <div class="">
               <p>Nome da Disciplina: {{ disciplina.nome_disciplina }}</p>
               <p>Nome do professor: {{disciplina.professor}}</p>
-              <p>Carga Horária: {{disciplina.carga_horaria}}</p>
-              <p>Período: {{disciplina.periodo}}h</p>
-
+              <p>Carga Horária: {{disciplina.carga_horaria}}h</p>
+              <p>Período: {{disciplina.periodo}}</p>
+              <p>Bibliografia: {{disciplina.bibliografia}}</p>
               <br>
               <div class="">
-                <h6>Plano de Aula</h6>
-              
+                <h6>Plano de Aulas</h6>
+                  <a class="btn btn-primary" href="{% url 'plano_de_aula' pk=disciplina.pk %}">Gerar plano de Aulas</a>
               </div>
 
             </div>
